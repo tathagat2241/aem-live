@@ -104,6 +104,13 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 }
 
 /**
+ * Toggles dark mode on and off
+ */
+function toggleDarkMode() {
+  document.body.classList.toggle('dark-mode');
+}
+
+/**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
  */
@@ -158,6 +165,12 @@ export default async function decorate(block) {
   // prevent mobile nav behavior on window resize
   toggleMenu(nav, navSections, isDesktop.matches);
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
+
+  // Add dark mode toggle button
+  const darkModeToggle = document.createElement('button');
+  darkModeToggle.textContent = 'Toggle Dark Mode';
+  darkModeToggle.addEventListener('click', toggleDarkMode);
+  nav.querySelector('.nav-tools').append(darkModeToggle);
 
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
