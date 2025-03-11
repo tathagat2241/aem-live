@@ -159,6 +159,12 @@ export default async function decorate(block) {
   toggleMenu(nav, navSections, isDesktop.matches);
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
+  // Add dark mode toggle button
+  const darkModeToggle = document.createElement('button');
+  darkModeToggle.textContent = 'Toggle Dark Mode';
+  darkModeToggle.addEventListener('click', toggleDarkMode);
+  nav.querySelector('.nav-tools').append(darkModeToggle);
+
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);

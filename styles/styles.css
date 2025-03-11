@@ -70,6 +70,17 @@
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #121212;
+    --light-color: #1e1e1e;
+    --dark-color: #e0e0e0;
+    --text-color: #ffffff;
+    --link-color: #bb86fc;
+    --link-hover-color: #3700b3;
+  }
+}
+
 body {
   display: none;
   margin: 0;

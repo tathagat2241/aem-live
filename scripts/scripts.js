@@ -41,6 +41,24 @@ async function loadFonts() {
 }
 
 /**
+ * Toggles dark mode and saves the preference in localStorage.
+ */
+function toggleDarkMode() {
+  const isDarkMode = document.body.classList.toggle('dark-mode');
+  localStorage.setItem('dark-mode', isDarkMode);
+}
+
+/**
+ * Loads dark mode preference from localStorage.
+ */
+function loadDarkModePreference() {
+  const isDarkMode = localStorage.getItem('dark-mode') === 'true';
+  if (isDarkMode) {
+    document.body.classList.add('dark-mode');
+  }
+}
+
+/**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
  */
@@ -73,6 +91,7 @@ export function decorateMain(main) {
  */
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
+  loadDarkModePreference();
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {
