@@ -104,6 +104,13 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 }
 
 /**
+ * Toggles dark mode on and off
+ */
+function toggleDarkMode() {
+  document.body.classList.toggle('dark-mode');
+}
+
+/**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
  */
